@@ -1,0 +1,20 @@
+# Render blueprint for the Duplex frontend (the Next.js app).
+# https://render.com/docs/blueprint-spec
+#
+# Deploy: push this repo to GitHub, then in Render pick "New > Blueprint" and point it here.
+#
+# NEXT_PUBLIC_BROKER_URL is inlined at build time, so it must be set before the build runs.
+# Point it at the deployed broker's URL. Render sets PORT automatically, and `next start`
+# reads PORT by default, so no port flag is needed in the start command.
+
+services:
+  - type: web
+    name: duplex-frontend
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      # The deployed broker's URL. Change to your broker URL.
+      - key: NEXT_PUBLIC_BROKER_URL
+        value: https://duplex-broker.onrender.com
