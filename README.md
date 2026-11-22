@@ -5,9 +5,10 @@ the browser client (`lib/duplex.ts`) and turns one `connect()` call into a live 
 voice session: it captures the microphone, runs the WebRTC handshake through the broker, and
 plays the model's voice.
 
-Duplex is a learning project, not an SDK. There is nothing to install from npm. You run this
-app, read it, and change it. Building it by hand is how we learn what our own SDK should look
-like later. See the [`duplex-server`](../duplex-server) repo for the full picture.
+Duplex is a learning project. There is nothing to install from npm. You run this app, read it,
+and change it. The browser client (`lib/duplex.ts`) is small on purpose, so you own it: clone
+this repo, point it at your server, and change the UI. There is no client SDK; the SDK work is
+on the server side. See the [`duplex-server`](../duplex-server) repo for the full picture.
 
 It talks to the **broker** (the Python server in the separate
 [`duplex-server`](../duplex-server) repo). Run the broker first, or point this app at a deployed one.
